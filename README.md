@@ -49,31 +49,41 @@ The preferred way of building the toolchain is using the Podman container which 
 
 1. Build toolchain builder container.
     Run the building script in the build_toochain_container directory
-    ```$ build_toolchain_container/build.sh```
+    ```
+    $ build_toolchain_container/build.sh
+    ```
 
 2. Execute the container from the script directory.
-    ```$ cd scripts
+    ```
+    $ cd scripts
     $ ../build_toolchain_container/execute.sh
     ```
 
-3. Execute the building script inside the container
-    ```./build-toolchain.sh --gcc 15.2.0 --binutils 2.45 --newlib 4.5.0.20241231 --overlays 2022r1 ```
-    gcc version: 15.2.0
-    binutils version: 2.45
-    newlib version: 4.5.0.20241231
-    ovelays version: 2022r1
+3. Execute the building script inside the container.
+    ```./build-toolchain.sh --gcc 15.2.0 --binutils 2.45 --newlib 4.5.0.20241231 --overlays 2022r1 
+    ```
+    - gcc version: 15.2.0
+    - binutils version: 2.45
+    - newlib version: 4.5.0.20241231
+    - ovelays version: 2022r1
+
     If you want to use different vesions, just specify the desired version for each component.
     If the process has been properly execute a directory debs has been created with the Debian packages.
-    ```exit```
+    ```
+    exit
+    ```
 
 4. Build the toolchain container.
     Run the building script in the esp8266_toolchain_container directory
-    ```$ esp8266_toolchain_container/build.sh scripts/debs```
+    ```
+    $ esp8266_toolchain_container/build.sh scripts/debs
+    ```
     scripts/debs is the directory where the Debian packages have been placed
 
 5. Execute the toolchain container.
     Move to the folder where you have the project you want to build, connect your ESP-8266 board to an USB port and execute the podman container.
-    ```$ cd <my_project_dir>
+    ```
+    $ cd <my_project_dir>
     $ /xxxx/esp8266_toolchain_container/execute.sh --device /dev/ttyUSB0
     ```
 6. Execute your building process and upload the generated image to the board. [See C++ examples for baremetal ESP-8266](https://github.com/jgomezlopez/esp8266_no_sdk_baremetal_cpp)
