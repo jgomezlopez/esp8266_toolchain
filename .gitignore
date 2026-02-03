@@ -1,0 +1,3 @@
+scripts/*
+!scripts/**/*.sh
+*/debs/*.deb
